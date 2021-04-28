@@ -13,4 +13,6 @@ class User extends Model
         'identification_number',
         'email'
     ];
+
+    protected $primaryKey = 'user_id';
 }
