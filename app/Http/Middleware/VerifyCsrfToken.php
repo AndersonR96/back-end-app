@@ -12,7 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'stripe/*',
-        'http://back-end-laravel.herokuapp.com/api/departaments',
+        //
     ];
 }
