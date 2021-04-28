@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('users', 'UserController');
-Route::resource('departaments', 'departamentController');
+Route::resource('departaments', 'DepartamentController');

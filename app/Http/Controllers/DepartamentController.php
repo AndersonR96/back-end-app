@@ -81,9 +81,17 @@ class DepartamentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        request()->validate([
+            'departament' => 'required', 
+        ]);
+
+        $departament = Departament::where('departament_id','=', $id)
+        ->update([
+            'departament' => request('departament')
+        ]);
+
     }
 
     /**
@@ -94,6 +102,10 @@ class DepartamentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Departament::select('*')
+        ->where('departament_id','=', $id);
+        $delete->delete();
+
+        return response()->json($delete);
     }
 }

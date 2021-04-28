@@ -97,7 +97,7 @@ class UserController extends Controller
         ]);
         $user = User::where('user_id', '=', $id)
             ->update([
-                'departament_id' => 2,
+                'departament_id' => request('departament_id'),
                 'name' => request('name') ,
                 'last_name' => request('last_name') ,
                 'identification_number' => request('identification_number') ,
