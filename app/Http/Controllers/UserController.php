@@ -25,7 +25,7 @@ class UserController extends Controller
         //         'users.updated_at as updated_at'
         //         )->get();
         $var = User::join('departaments as de','de.departament_id','=','users.user_id')->get();
-        return response()->json($var);
+        return response()->json_encode($var);
     }
 
     /**
