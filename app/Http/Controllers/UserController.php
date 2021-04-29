@@ -14,7 +14,16 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::all();
+        return User::join('departaments as de','de.departament_id','=','users.user_id')
+        ->select('users.user_id as user_id',
+                'users.name as name',
+                'users.last_name as last_name',
+                'de.departament as departament',
+                'users.identification_number as identification_number',
+                'users.email as email',
+                'users.created_at as created_at',
+                'users.updated_at as updated_at'
+                )->get();
     }
 
     /**
